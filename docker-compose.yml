@@ -1,0 +1,29 @@
+version: '3.4'
+x-mysql-auth: &mysql-auth-vars
+  MYSQL_USER: "interview_challenge"
+  MYSQL_PASSWORD: hardtoGUESS45-
+  MYSQL_DATABASE: interview_challenge
+
+services:
+  nginx:
+    restart: always
+    image: "nginx:1.15-alpine"
+    volumes:
+      - ./conf/nginx:/etc/nginx
+    ports:
+     - "5000:80"
+  app:
+    restart: always
+    build: .
+    environment:
+      <<: *mysql-auth-vars
+      DB_HOST: "db"
+  db:
+    image: "mariadb:10.4"
+    restart: always
+    environment:
+      <<: *mysql-auth-vars
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - ./data/mysql_live:/var/lib/mysql
+      - ./data/initdb.d:/docker-entrypoint-initdb.d
