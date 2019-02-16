@@ -14,7 +14,7 @@ services:
      - "8080:80"
   app:
     restart: always
-    image: juanchimienti/interview_challenge:0.1.0
+    image: juanchimienti/interview_challenge:0.1.1
     build: .
     environment:
       <<: *mysql-auth-vars
@@ -26,5 +26,8 @@ services:
       <<: *mysql-auth-vars
       MYSQL_ROOT_PASSWORD: "SUPERhardpwd##"
     volumes:
-      - ./data/mysql_live:/var/lib/mysql
+      - data_mysql:/var/lib/mysql
       - ./data/initdb.d:/docker-entrypoint-initdb.d
+
+volumes:
+  data_mysql:
