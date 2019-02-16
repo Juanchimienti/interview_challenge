@@ -45,7 +45,7 @@ def custom_list():
 
     employees = database.select("""select * from employees where gender = "M" and
 			  hire_date > "%s" order by first_name, last_name
-			  limit 10""" % max_hire_date)
+			  """ % max_hire_date)
     result = {}
     result['table_name'] = "Employees"
     result['headers'] = employees.column_names
