@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ result.table_name }}</title>
+</head>
+
+<body>
+<style>
+* {
+    font-family: arial, sans-serif;
+}
+table {
+    border-collapse: collapse;
+    width: 75%;
+}
+
+td, th {
+    border: 1px solid #005fa8;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f4faff;
+}
+
+th {
+    background-color: #dee6ed;
+}
+</style>
+
+
+<div align="center" style="padding-top:2%">
+<h1>{{ result.table_name }}</h1>
+
+{% if result.table %}
+    <table ><tbody><tr>
+     {% if result.headers %}{% for header in result.headers %} <th>{{ header }}</th>{% endfor%}{% endif %}
+    </tr>
+    {% for row in result.table %}<tr>{% for field in row %}<td> {{ field }}</td>{% endfor %}</tr>{% endfor %}
+    </tbody></table>
+{% endif %}
+
+</div>
+</body>
+</html>
+

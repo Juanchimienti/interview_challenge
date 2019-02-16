@@ -2,7 +2,7 @@ version: '3.4'
 x-mysql-auth: &mysql-auth-vars
   MYSQL_USER: "interview_challenge"
   MYSQL_PASSWORD: hardtoGUESS45-
-  MYSQL_DATABASE: interview_challenge
+  MYSQL_DATABASE: employees
 
 services:
   nginx:
@@ -23,7 +23,7 @@ services:
     restart: always
     environment:
       <<: *mysql-auth-vars
-      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: "SUPERhardpwd##"
     volumes:
       - ./data/mysql_live:/var/lib/mysql
       - ./data/initdb.d:/docker-entrypoint-initdb.d
