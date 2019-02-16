@@ -11,9 +11,10 @@ services:
     volumes:
       - ./conf/nginx:/etc/nginx
     ports:
-     - "5000:80"
+     - "8080:80"
   app:
     restart: always
+    image: juanchimienti/interview_challenge:0.1.0
     build: .
     environment:
       <<: *mysql-auth-vars
