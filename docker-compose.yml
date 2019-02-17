@@ -14,8 +14,8 @@ services:
      - "8080:80"
   app:
     restart: always
-    image: juanchimienti/interview_challenge:0.1.1
-    build: .
+    image: juanchimienti/interview_challeng_app:0.1.1
+#    build: .
     environment:
       <<: *mysql-auth-vars
       DB_HOST: "db"
