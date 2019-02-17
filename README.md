@@ -1,20 +1,22 @@
 # interview_challenge
 
 ## Short description
-This repo is the solution to an interview challenge. The main goal is to generate a setup with mysql nginx and a app and return a list of a particular query
+This repo is the solution to an interview challenge. The main goal is to generate a setup with mysql nginx and an app that return a list of a particular query.
 
 ## Minimun requirements
 
 Software | Version
 :------------- | -------------:
-docker-compose | 3.4
+docker-compose | 3.4+
 docker | 17.09.0+
 
 ## Step by step guide (simple version)
 
-The simple version uses the images already generated available at dockerhub.
+This guide (simple version) uses the images already generated and available at dockerhub. If you want to build locally the app image check [here](#using-local-image-example).
 
-Simply install docker & docker-compose and run in the root of this repo:
+First install [docker](https://docs.docker.com/install/)  & [docker-compose](https://docs.docker.com/compose/install/).
+
+Then run the following to clone the repo and start the containers
 
 ```
 git clone git@github.com:Juanchimienti/interview_challenge.git
@@ -28,7 +30,9 @@ This will start 3 containers (nginx, app, db) and open the port 8080 on your loc
 
 Then point the browser to http://127.0.0.1:8080/employees/custom_list and you should see the list of employees.
 
-The first time that you start the enviroment the mysql database get populated as a result it will take a few minutes to be ready (in my computer where 5 minutes). You should wait for the "mysqld: ready for connections." message to appear in the console
+The first time that you start the enviroment the mysql database get populated as a result it will take a few minutes to be ready (in my computer where 5 minutes). You should wait for the "mysqld: ready for connections." message to appear in the console.
+
+Once you wish to stop just press Ctrl-C.
 
 ## Example run
 
@@ -207,29 +211,32 @@ $ curl localhost:8080/employees/custom_list > /dev/null
 
 ### Screenshot
 
-Sample output
-
+Sample output:
 
 ![](https://i.imgur.com/3J9JAjF.png)
 
 
 ## Using local image example
 
-If you want to modify something of the app behavior you can build locally the app docker image with the following steps:
+If you want to modify something of the app behavior you can build locally the app's docker image.
+First you should install docker and docker-compose and then follow this steps:
 
-  - Edit docker-compose.yml
-uncomment the build line:
+1. Edit docker-compose.yml
+
+Uncomment the build line:
 
 ```
     image: juanchimienti/interview_challeng_app:0.1.1
 #    build: .
     environment:
 ```
-  - Modify the app.py
+2. Modify the app.py
 
-  - Rebuild the image
+Make the changes you wish
 
-using the following command:
+3. Rebuild the image
+
+Using the following command:
 
 ```
 docker-compose build
@@ -238,5 +245,4 @@ docker-compose build
 Then docker-compose up to start all again
 
 **Beware this process will replace the local app docker image.**
-
 
