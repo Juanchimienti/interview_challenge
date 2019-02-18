@@ -226,7 +226,7 @@ First you should install docker and docker-compose and then follow this steps:
 Uncomment the build line:
 
 ```
-    image: juanchimienti/interview_challeng_app:0.1.1
+    image: juanchimienti/interview_challenge_app:0.1.1
 #    build: .
     environment:
 ```
