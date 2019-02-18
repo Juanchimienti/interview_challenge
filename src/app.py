@@ -21,7 +21,7 @@ class Db:
         )
         self.cur = self.conn.cursor()
     def select(self, query):
-        """ Execute select query and returns a cursor """
+        """ Executes select query and returns a cursor """
         self.conn.ping(reconnect=True, attempts=3, delay=0.2)
         self.cur.execute(query)
         return self.cur
@@ -33,9 +33,9 @@ def get_db_date():
 
 @app.route('/')
 def hello():
-    """ Hello world that test the DB connection """
+    """ Hello world that tests the DB connection """
     date = get_db_date()
-    return 'Hello World! Database says is {} now.\n'.format(date[0][0])
+    return 'Hello World! Database says it is {} now.\n'.format(date[0][0])
 
 @app.route('/employees/custom_list')
 def custom_list():

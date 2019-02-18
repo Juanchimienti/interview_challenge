@@ -1,7 +1,7 @@
 # interview_challenge
 
 ## Short description
-This repo is the solution to an interview challenge. The main goal is to generate a setup with mysql nginx and an app that return a list of a particular query.
+This repo is the solution to an interview challenge. The main goal is to generate a setup with mysql, nginx and an app that show the result of a particular query.
 
 ## Minimun requirements
 
@@ -30,7 +30,7 @@ This will start 3 containers (nginx, app, db) and open the port 8080 on your loc
 
 Then point the browser to http://127.0.0.1:8080/employees/custom_list and you should see the list of employees.
 
-The first time that you start the enviroment the mysql database get populated as a result it will take a few minutes to be ready (in my computer where 5 minutes). You should wait for the "mysqld: ready for connections." message to appear in the console.
+The first time that you start the enviroment the mysql database gets populated as a result. It will take a few minutes to be ready (in my computer it took 5 minutes). You should wait for the "mysqld: ready for connections." message to appear in the console.
 
 Once you wish to stop just press Ctrl-C.
 
@@ -216,9 +216,9 @@ Sample output:
 ![](https://i.imgur.com/3J9JAjF.png)
 
 
-## Using local image example
+## Example using local image
 
-If you want to modify something of the app behavior you can build locally the app's docker image.
+If you want to modify the app behavior you can build locally its docker image.
 First you should install docker and docker-compose and then follow this steps:
 
 1. Edit docker-compose.yml
@@ -230,7 +230,7 @@ Uncomment the build line:
 #    build: .
     environment:
 ```
-2. Modify the app.py
+2. Modify app.py
 
 Make the changes you wish
 
@@ -244,5 +244,5 @@ docker-compose build
 
 Then docker-compose up to start all again
 
-**Beware this process will replace the local app docker image.**
+**Beware: this process will replace the local app docker image.**
 
